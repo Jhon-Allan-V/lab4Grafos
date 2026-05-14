@@ -53,7 +53,7 @@ int getWeight(Graph* g, const char* label1, const char* label2) {
     if (pair == NULL) return -1;
 
     List *lista = (List*)pair -> value; // las
-    Edge *aux = (Edge*)list_first(lista);
+    Edge *aux = list_first(lista);
 
     while (aux != NULL){
         if (!strcmp(aux -> target, label2)){ // si es 
