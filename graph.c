@@ -37,11 +37,12 @@ Graph* createGraph() {
 }
 
 void addNode(Graph* g, const char* label) {
-    MapPair *node = map_search(g -> adjacencyMap, label);
-    //el vertice ya existe dentro del mapa;
+    //MapPair *node = map_search(g -> adjacencyMap, label);
     //if (node != NULL && !strcmp(node -> key, label)) return;
+    
+    //el vertice ya existe dentro del mapa;
     if (map_search(g -> adjacencyMap, label) != NULL) return;
-    List *listaConexiones = create_list();
+    List *listaConexiones = list_create();
     map_insert(g -> adjacencyMap, label, listaConexiones);
 }
 
