@@ -41,9 +41,9 @@ void addNode(Graph* g, const char* label) {
     //if (node != NULL && !strcmp(node -> key, label)) return;
     
     //el vertice ya existe dentro del mapa;
-    if (map_search(g -> adjacencyMap, label) != NULL) return;
+    if (map_search(g -> adjacencyMap, (void*)label) != NULL) return;
     List *listaConexiones = list_create();
-    map_insert(g -> adjacencyMap, label, listaConexiones);
+    map_insert(g -> adjacencyMap, (void*)label, listaConexiones);
 }
 
 void addEdge(Graph* g, const char* src, const char* dest, int weight) {
