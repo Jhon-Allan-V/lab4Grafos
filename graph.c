@@ -30,6 +30,9 @@ Graph* createGraph() {
     Graph *result = malloc(sizeof(Graph));
     if (!result) exit(EXIT_FAILURE);
 
+    result -> adjacencyMap = malloc(sizeof(Map*));
+    if (!result -> adjacencyMap) exit(EXIT_FAILURE);
+
     return result;
 }
 
