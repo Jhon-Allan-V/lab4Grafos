@@ -141,3 +141,18 @@ map.h:18:33: note: expected ‘void *’ but argument is of type ‘const char *
       |                           ~~~~~~^~~
 cc1: all warnings being treated as errors
 3ad59e1
+Fri May 15 11:06:00 PM UTC 2026: 
+ graph.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘addNode’:
+graph.c:41:46: error: ‘text’ undeclared (first use in this function)
+   41 |     if (map_search(g -> adjacencyMap, (void*)text) != NULL) return;
+      |                                              ^~~~
+graph.c:41:46: note: each undeclared identifier is reported only once for each function it appears in
+graph.c:45:5: error: statement with no effect [-Werror=unused-value]
+   45 |     strcmp(text, label);
+      |     ^~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+c30d6fa

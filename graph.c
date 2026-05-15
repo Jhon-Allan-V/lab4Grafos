@@ -37,13 +37,15 @@ Graph* createGraph() {
 }
 
 void addNode(Graph* g, const char* label) {
-    //MapPair *node = map_search(g -> adjacencyMap, label);
-    //if (node != NULL && !strcmp(node -> key, label)) return;
-    
     //el vertice ya existe dentro del mapa;
-    if (map_search(g -> adjacencyMap, label) != NULL) return;
+    if (map_search(g -> adjacencyMap, (void*)text) != NULL) return;
+
+    char *text = malloc(sizeof(label));
+    if (text == NULL) exit(EXIT_FAILURE);
+    strcmp(text, label);
+    
     List *listaConexiones = list_create();
-    map_insert(g -> adjacencyMap, label, listaConexiones);
+    map_insert(g -> adjacencyMap, (void*)text, listaConexiones);
 }
 
 void addEdge(Graph* g, const char* src, const char* dest, int weight) {
