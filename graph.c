@@ -40,9 +40,9 @@ void addNode(Graph* g, const char* label) {
     //el vertice ya existe dentro del mapa;
     if (map_search(g -> adjacencyMap, (void*)label) != NULL) return;
 
-    char *text = malloc(sizeof(label));
+    char *text = malloc(strlen(label) +1);
     if (text == NULL) exit(EXIT_FAILURE);
-    strcmp(text, label);
+    strcpy(text, label);
     
     List *listaConexiones = list_create();
     map_insert(g -> adjacencyMap, (void*)text, listaConexiones);
