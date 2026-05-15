@@ -49,17 +49,21 @@ List* getEdges(Graph* g, const char* label) {
 int getWeight(Graph* g, const char* label1, const char* label2) {
     if (!g || !label1 || !label2) return -1;
 
-    MapPair *pair = map_search(g -> adjacencyMap, (void*)label1);
+    //obtener el pair dentro del mapa con la key label
+    MapPair *pair = map_search(g -> adjacencyMap, (void*)label1);  
     if (pair == NULL) return -1;
 
-    List *lista = pair -> value; // las
+    //dentro de pair -> value, tenemos una lista con las conexiones de este.
+    List *lista = pair -> value;
+    //obtenemos la primera arista de la lista de aristas de pair.
     Edge *aux = list_first(lista);
 
-    while (aux != NULL){
-        if (!strcmp(aux -> target, label2)){ // si es 
+    //recorremos los contenidos de la lista, actualizando aux a la arista siguiente.
+    while (aux != NULL){ 
+        if (!strcmp(aux -> target, label2)){
             return aux -> weight;
         }
-        aux = list_next(lista);
+        aux = list_next(lista); //aux se convierte en la arista siguiente a este.
     }
 
     // Si no existe el origen o terminamos de iterar sin encontrar el destino
