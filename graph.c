@@ -38,7 +38,7 @@ Graph* createGraph() {
 
 void addNode(Graph* g, const char* label) {
     //el vertice ya existe dentro del mapa;
-    if (map_search(g -> adjacencyMap, (void*)text) != NULL) return;
+    if (map_search(g -> adjacencyMap, (void*)label) != NULL) return;
 
     char *text = malloc(sizeof(label));
     if (text == NULL) exit(EXIT_FAILURE);

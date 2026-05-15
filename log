@@ -156,3 +156,14 @@ graph.c:45:5: error: statement with no effect [-Werror=unused-value]
       |     ^~~~~~~~~~~~~~~~~~~
 cc1: all warnings being treated as errors
 c30d6fa
+Fri May 15 11:06:53 PM UTC 2026: 
+ graph.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘addNode’:
+graph.c:45:5: error: statement with no effect [-Werror=unused-value]
+   45 |     strcmp(text, label);
+      |     ^~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+c44a4c3
