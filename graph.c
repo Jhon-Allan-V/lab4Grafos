@@ -27,14 +27,11 @@ int is_equal_string(void *key1, void *key2) {
  * ========================================= */
 
 Graph* createGraph() {
-    Graph *result = malloc(sizeof(Graph*));
+    Graph *result = malloc(sizeof(Graph*)); //reservar memoria
     if (!result) exit(EXIT_FAILURE);
 
-    result -> adjacencyMap = malloc(sizeof(Map*));
-    if (!result -> adjacencyMap) exit(EXIT_FAILURE);
-
-    //result -> adjacencyMap -> ls = malloc(sizeof(List*));
-    //if (!result -> adjacencyMap -> ls) exit(EXIT_FAILURE);
+    //crear el mapa que se encuentra dentro del grafo
+    result -> adjacencyMap = map_create(is_equal_string); 
     
     return result;
 }
