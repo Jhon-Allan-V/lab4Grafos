@@ -110,19 +110,21 @@ int getWeight(Graph* g, const char* label1, const char* label2) {
 List* getAdjacentLabels(Graph* g, const char* label) {
     if (!g || !label) return NULL;
 
+    //buscar el nodo de origen atravez de su label o identificador
     MapPair *nodoOrigen = map_search(g -> adjacencyMap, (void*)label);
     if (!nodoOrigen) return NULL; 
 
-    List *listaDeAristas = list_create();
+    List *listaDeAristas = list_create(); //crear lista
     if (!listaDeAristas) exit(EXIT_FAILURE);
 
-    //List *listaAristas = list_first(nodoOrigen -> value);
     Edge *arista = list_first(nodoOrigen -> value);
     
-    while (arista){
+    while (arista){ //recorrer lista de aristas de nodo origen
+        //agregar el nombre de la arista a la lista
         list_pushBack(listaDeAristas, arista -> target);
-        arista = list_next(nodoOrigen -> value);
+        arista = list_next(nodoOrigen -> value); //avanzar en la lista
     }
+    
     return listaDeAristas;
 }
 
