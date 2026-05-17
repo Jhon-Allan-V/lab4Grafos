@@ -60,6 +60,9 @@ void addEdge(Graph* g, const char* src, const char* dest, int weight) {
         Edge *arista = malloc(sizeof(Edge));
         if (arista == NULL) exit(EXIT_FAILURE);
 
+        arista -> target = malloc(strlen(dest) +1);
+        if (arista -> target == NULL) exit(EXIT_FAILURE);
+        
         strcpy(arista -> target, dest); //definir nombre.
         arista -> weight = weight; //definir peso.
 
