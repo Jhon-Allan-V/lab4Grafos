@@ -172,3 +172,16 @@ Fri May 15 11:09:34 PM UTC 2026:
  1 file changed, 2 insertions(+), 2 deletions(-)
  tests:  0|0
 2252624
+Sun May 17 04:00:36 AM UTC 2026: 
+ graph.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘addEdge’:
+graph.c:60:31: error: implicit declaration of function ‘sizseof’ [-Wimplicit-function-declaration]
+   60 |         Edge *arista = malloc(sizseof(Edge));
+      |                               ^~~~~~~
+graph.c:60:39: error: expected expression before ‘Edge’
+   60 |         Edge *arista = malloc(sizseof(Edge));
+      |                                       ^~~~
+c12c774

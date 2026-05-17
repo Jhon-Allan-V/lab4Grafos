@@ -37,6 +37,7 @@ Graph* createGraph() {
 }
 
 void addNode(Graph* g, const char* label) {
+    if (!g || !label) return;
     //el vertice ya existe dentro del mapa;
     if (map_search(g -> adjacencyMap, (void*)label) != NULL) return;
 
@@ -45,14 +46,26 @@ void addNode(Graph* g, const char* label) {
     if (text == NULL) exit(EXIT_FAILURE);
     strcpy(text, label);
 
-    //crear lista de conexiones
+    //crear lista de aristas.
     List *listaConexiones = list_create();
     map_insert(g -> adjacencyMap, (void*)text, listaConexiones);
 }
 
 void addEdge(Graph* g, const char* src, const char* dest, int weight) {
+    //src: nodo de origen
+    //dest : destino del nodo de origen
     if (!g || !src || !dest) return;
-                                                 
+    MapPair *pair = map_search(g -> adjacencyMap, (void*)src);
+    if (pair){
+        Edge *arista = malloc(sizseof(Edge));
+        if (arista == NULL) exit(EXIT_FAILURE);
+
+        strcpy(arista -> target, dest); //definir nombre.
+        arista -> weight = weight; //definir peso.
+
+        //agregar arista a la lista de adyacencia del nodo de origen.
+        list_pushBack(pair -> value, arista); 
+    }                                          
 }
 
 List* getEdges(Graph* g, const char* label) {
