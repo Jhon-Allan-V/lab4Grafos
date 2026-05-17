@@ -57,7 +57,7 @@ void addEdge(Graph* g, const char* src, const char* dest, int weight) {
     if (!g || !src || !dest) return;
     MapPair *pair = map_search(g -> adjacencyMap, (void*)src);
     if (pair){
-        Edge *arista = malloc(sizseof(Edge));
+        Edge *arista = malloc(sizeof(Edge));
         if (arista == NULL) exit(EXIT_FAILURE);
 
         strcpy(arista -> target, dest); //definir nombre.
