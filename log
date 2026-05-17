@@ -199,3 +199,15 @@ Sun May 17 04:08:37 AM UTC 2026:
  tests:  12|0
 ========================================
 b4d6e69
+Sun May 17 03:17:33 PM UTC 2026: 
+ graph.c | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘getAdjacentLabels’:
+graph.c:113:64: error: ‘label1’ undeclared (first use in this function); did you mean ‘label’?
+  113 |     MapPair *nodoOrigen = map_search(g -> adjacencyMap, (void*)label1);
+      |                                                                ^~~~~~
+      |                                                                label
+graph.c:113:64: note: each undeclared identifier is reported only once for each function it appears in
+3741775

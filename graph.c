@@ -74,9 +74,10 @@ void addEdge(Graph* g, const char* src, const char* dest, int weight) {
 List* getEdges(Graph* g, const char* label) {
     if (!g || !label) return NULL;
 
+    //obtener el nodo de origen dentro del mapa
     MapPair *pair = map_search(g -> adjacencyMap, (void*)label);
-    if (pair){
-        return pair -> value;
+    if (pair){ //si este nodo existe:
+        return pair -> value; //retornar la lista de este
     }
     return NULL;
 }
@@ -109,8 +110,20 @@ int getWeight(Graph* g, const char* label1, const char* label2) {
 List* getAdjacentLabels(Graph* g, const char* label) {
     if (!g || !label) return NULL;
 
+    MapPair *nodoOrigen = map_search(g -> adjacencyMap, (void*)label1);
+    if (!nodoOrigen) return NULL; 
 
-    return NULL; 
+    List *listaDeAristas = list_create();
+    if (!listaDeAristas) exit(EXIT_FAILURE);
+
+    //List *listaAristas = list_first(nodoOrigen -> value);
+    Edge *arista = list_first(nodoOrigen -> value);
+    
+    while (arista){
+        list_pushBack(listaDeAristas, arista -> target);
+        arista = list_next(nodoOrigen -> value);
+    }
+    return listaDeAristas;
 }
 
 void destroyGraph(Graph* g) {
